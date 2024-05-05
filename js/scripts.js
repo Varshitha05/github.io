@@ -32,6 +32,31 @@ function make_me_dark() {
   element.classList.toggle("dark-mode");
 }
 
+
+const titles = ["Varshitha", "Software Engineer", "Tech Enthusiast", "AWS Certified", "Problem Solver"];
+let currentIndex = 0;
+const textElement = document.getElementById("dynamic-text");
+
+textElement.textContent = titles[currentIndex];
+textElement.style.opacity = 1;
+currentIndex++;
+
+function changeText() {
+  textElement.style.opacity = 0;
+  setTimeout(() => {
+    if (currentIndex >= titles.length) {
+      currentIndex = 0; 
+    }
+    textElement.textContent = titles[currentIndex]; 
+    textElement.style.opacity = 1; 
+    currentIndex++;
+  }, 500);
+}
+
+setInterval(changeText, 2000); 
+
+
+
 function showModal(modalId) {
   var modal = document.getElementById(modalId);
   modal.style.display = "flex";
